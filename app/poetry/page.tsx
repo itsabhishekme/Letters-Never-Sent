@@ -6,17 +6,40 @@ import {
   Sparkles,
   ArrowRight,
   Calendar,
-  Clock,
+  Clock3,
   PenTool,
+  Quote,
+  Moon,
+  Stars,
+  Flower2,
+  Wind,
+  Flame,
+  Sun,
+  BookHeart,
+  PenSquare,
+  Bookmark,
+  Coffee,
+  Music,
+  CloudRain,
+  LucideIcon,
 } from "lucide-react";
 
 export const metadata = {
-  title: "Poetry",
+  title: "Poetry | Letters Never Sent",
   description:
-    "Explore poetry from Letters Never Sent — verses of love, longing, hope, healing, memories, and the emotions that shape us.",
+    "Explore poetry from Letters Never Sent — verses of love, longing, hope, healing, nostalgia, dreams, grief, and the emotions that shape the human experience.",
 };
 
-const poems = [
+interface Poem {
+  slug: string;
+  title: string;
+  category: string;
+  date: string;
+  readTime: string;
+  excerpt: string;
+}
+
+const poems: Poem[] = [
   {
     slug: "between-the-lines",
     title: "Between the Lines",
@@ -33,7 +56,7 @@ const poems = [
     date: "June 2026",
     readTime: "3 min read",
     excerpt:
-      "Silence speaks in ways language never could.",
+      "Silence often carries truths that language struggles to express.",
   },
   {
     slug: "a-room-full-of-memories",
@@ -42,16 +65,16 @@ const poems = [
     date: "June 2026",
     readTime: "4 min read",
     excerpt:
-      "Every corner remembers what time forgot.",
+      "Every corner remembers something time tried to erase.",
   },
   {
     slug: "letters-to-the-moon",
-    title: "Letters to the Moon",
+    title: "Letters To The Moon",
     category: "Dreams",
     date: "June 2026",
     readTime: "3 min read",
     excerpt:
-      "A conversation with the sky on a sleepless night.",
+      "A conversation with the night sky during a sleepless evening.",
   },
   {
     slug: "the-last-goodbye",
@@ -60,7 +83,7 @@ const poems = [
     date: "June 2026",
     readTime: "4 min read",
     excerpt:
-      "Not every farewell is spoken aloud.",
+      "Not every farewell arrives with words or warning.",
   },
   {
     slug: "still-growing",
@@ -69,69 +92,195 @@ const poems = [
     date: "June 2026",
     readTime: "2 min read",
     excerpt:
-      "Even broken branches can bloom again.",
+      "Even broken branches continue reaching toward sunlight.",
+  },
+];
+
+const themes = [
+  "Love",
+  "Hope",
+  "Loss",
+  "Dreams",
+  "Healing",
+  "Nostalgia",
+  "Longing",
+  "Reflection",
+  "Growth",
+  "Wonder",
+  "Friendship",
+  "Heartbreak",
+];
+
+const poetryHighlights = [
+  {
+    icon: Heart,
+    title: "Emotion",
+    description:
+      "Poetry gives shape to feelings that often remain unspoken.",
+  },
+  {
+    icon: Moon,
+    title: "Reflection",
+    description:
+      "Moments of introspection transformed into imagery and rhythm.",
+  },
+  {
+    icon: Feather,
+    title: "Expression",
+    description:
+      "A place where thoughts become verses and memories become art.",
+  },
+  {
+    icon: Stars,
+    title: "Imagination",
+    description:
+      "Language that explores wonder, dreams, and possibility.",
+  },
+];
+
+const collections: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
+  {
+    title: "Love Poems",
+    description:
+      "Verses about affection, connection, devotion, and the complexities of the heart.",
+    icon: Heart,
+  },
+  {
+    title: "Dream Poems",
+    description:
+      "Poetry inspired by imagination, wonder, possibility, and the night sky.",
+    icon: Stars,
+  },
+  {
+    title: "Healing Poems",
+    description:
+      "Words written for recovery, resilience, acceptance, and hope.",
+    icon: Flower2,
+  },
+  {
+    title: "Nature Poems",
+    description:
+      "Reflections inspired by seasons, landscapes, weather, and change.",
+    icon: Wind,
+  },
+  {
+    title: "Passion Poems",
+    description:
+      "Poetry fueled by intensity, creativity, ambition, and desire.",
+    icon: Flame,
+  },
+  {
+    title: "Life Poems",
+    description:
+      "Observations on growth, memory, time, and the human experience.",
+    icon: Sun,
   },
 ];
 
 export default function PoetryPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="relative min-h-screen overflow-hidden bg-black text-white">
+      {/* Background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-white/5 blur-[150px]" />
+        <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-white/5 blur-[150px]" />
+      </div>
+
       {/* Hero */}
-      <section className="border-b border-white/10 px-6 py-24">
+      <section className="border-b border-white/10 px-6 py-32">
         <div className="mx-auto max-w-6xl text-center">
-          <div className="mb-8 flex justify-center">
-            <div className="rounded-full border border-white/10 bg-white/5 p-5">
-              <Feather size={52} />
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-zinc-300">
+            <Feather size={15} />
+            Poetry Collection
+          </div>
+
+          <div className="mb-10 flex justify-center">
+            <div className="rounded-full border border-white/10 bg-white/5 p-6">
+              <Feather size={60} />
             </div>
           </div>
 
-          <h1 className="mb-6 text-5xl font-bold md:text-7xl">
+          <h1 className="mb-8 text-6xl font-bold tracking-tight md:text-8xl">
             Poetry
           </h1>
 
-          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-zinc-400">
-            Poetry is where emotions become rhythm,
-            memories become imagery,
-            and silence finds a voice.
+          <p className="mx-auto max-w-4xl text-lg leading-relaxed text-zinc-400 md:text-xl">
+            Poetry is where emotions become rhythm, memories become imagery,
+            and silence discovers a voice. Here you'll find verses inspired by
+            love, longing, hope, healing, wonder, and the moments that quietly
+            shape a life.
           </p>
         </div>
       </section>
 
       {/* Introduction */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="mb-6 text-4xl font-bold">
-            A Collection of Feelings
-          </h2>
+      <section className="px-6 py-28">
+        <div className="mx-auto max-w-5xl">
+          <div className="rounded-[40px] border border-white/10 bg-white/[0.03] p-10 md:p-16">
+            <div className="mb-6 flex justify-center">
+              <Quote size={42} />
+            </div>
 
-          <p className="text-lg leading-relaxed text-zinc-400">
-            Some emotions are too large for ordinary sentences.
-            Poetry allows them to breathe.
-            <br />
-            <br />
-            Here you'll find verses inspired by love, longing,
-            hope, healing, memory, and the quiet moments
-            that shape our lives.
-          </p>
+            <h2 className="mb-8 text-center text-4xl font-bold md:text-5xl">
+              A Collection Of Feelings
+            </h2>
+
+            <p className="text-center text-lg leading-relaxed text-zinc-400">
+              Some emotions are too large for ordinary sentences. Poetry allows
+              them to breathe. Through rhythm, imagery, metaphor, and silence,
+              poetry captures experiences that often escape explanation. Every
+              poem is an attempt to preserve a feeling before it disappears.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Highlights */}
+      <section className="border-y border-white/10 px-6 py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+            {poetryHighlights.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.title}
+                  className="rounded-3xl border border-white/10 bg-white/[0.02] p-8"
+                >
+                  <Icon size={34} className="mb-5" />
+
+                  <h3 className="mb-3 text-xl font-semibold">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-zinc-500">
+                    {item.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       {/* Featured Poem */}
-      <section className="border-y border-white/10 px-6 py-24">
-        <div className="mx-auto max-w-5xl">
-          <div className="rounded-3xl border border-white/10 bg-white/[0.02] p-10">
-            <div className="mb-4 flex items-center gap-3">
-              <Sparkles size={20} />
-              <span className="text-zinc-400">
-                Featured Poem
-              </span>
+      <section className="px-6 py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="rounded-[40px] border border-white/10 bg-white/[0.03] p-10 md:p-16">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-400">
+              <Sparkles size={14} />
+              Featured Poem
             </div>
 
-            <h2 className="mb-8 text-4xl font-bold">
-              Between the Lines
+            <h2 className="mb-10 text-4xl font-bold md:text-6xl">
+              Between The Lines
             </h2>
 
-            <div className="max-w-2xl text-lg leading-relaxed text-zinc-300">
+            <div className="max-w-3xl text-xl leading-relaxed text-zinc-300">
               <p>There are words</p>
               <p>hidden between the lines,</p>
               <p>waiting to be noticed.</p>
@@ -152,25 +301,18 @@ export default function PoetryPage() {
         </div>
       </section>
 
-      {/* Poetry Categories */}
-      <section className="px-6 py-20">
+      {/* Themes */}
+      <section className="border-y border-white/10 px-6 py-28">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-10 text-center text-4xl font-bold">
+          <h2 className="mb-14 text-center text-5xl font-bold">
             Explore Themes
           </h2>
 
-          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
-            {[
-              "Love",
-              "Hope",
-              "Loss",
-              "Dreams",
-              "Healing",
-              "Nostalgia",
-            ].map((theme) => (
+          <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {themes.map((theme) => (
               <div
                 key={theme}
-                className="rounded-2xl border border-white/10 p-5 text-center transition hover:border-white/20"
+                className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 text-center transition hover:border-white/20"
               >
                 {theme}
               </div>
@@ -179,11 +321,49 @@ export default function PoetryPage() {
         </div>
       </section>
 
-      {/* Poems Grid */}
-      <section className="px-6 pb-24">
+      {/* Collections */}
+      <section className="px-6 py-28">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">
+          <div className="mb-16 text-center">
+            <h2 className="mb-5 text-5xl font-bold">
+              Poetry Collections
+            </h2>
+
+            <p className="text-zinc-500">
+              Discover poems through different emotional landscapes.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {collections.map((collection) => {
+              const Icon = collection.icon;
+
+              return (
+                <div
+                  key={collection.title}
+                  className="rounded-[32px] border border-white/10 bg-white/[0.02] p-8 transition hover:border-white/20"
+                >
+                  <Icon size={34} className="mb-5" />
+
+                  <h3 className="mb-3 text-2xl font-semibold">
+                    {collection.title}
+                  </h3>
+
+                  <p className="text-zinc-500">
+                    {collection.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Poems Grid */}
+      <section className="border-t border-white/10 px-6 py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 text-center">
+            <h2 className="mb-5 text-5xl font-bold">
               Poetry Collection
             </h2>
 
@@ -196,10 +376,10 @@ export default function PoetryPage() {
             {poems.map((poem) => (
               <article
                 key={poem.slug}
-                className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 transition hover:border-white/20"
+                className="group rounded-[32px] border border-white/10 bg-white/[0.02] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-white/20"
               >
                 <div className="mb-5 flex items-center justify-between">
-                  <span className="rounded-full border border-white/10 px-3 py-1 text-xs uppercase tracking-wider text-zinc-400">
+                  <span className="rounded-full border border-white/10 px-4 py-1 text-xs uppercase tracking-wider text-zinc-400">
                     {poem.category}
                   </span>
 
@@ -210,25 +390,25 @@ export default function PoetryPage() {
                   {poem.title}
                 </h3>
 
-                <p className="mb-6 text-zinc-500">
+                <p className="mb-6 leading-relaxed text-zinc-500">
                   {poem.excerpt}
                 </p>
 
-                <div className="mb-8 flex gap-4 text-sm text-zinc-600">
-                  <div className="flex items-center gap-1">
+                <div className="mb-8 flex flex-wrap gap-4 text-sm text-zinc-600">
+                  <div className="flex items-center gap-2">
                     <Calendar size={14} />
                     {poem.date}
                   </div>
 
-                  <div className="flex items-center gap-1">
-                    <Clock size={14} />
+                  <div className="flex items-center gap-2">
+                    <Clock3 size={14} />
                     {poem.readTime}
                   </div>
                 </div>
 
                 <Link
-                  href="#"
-                  className="inline-flex items-center gap-2 font-medium hover:text-zinc-300"
+                  href={`/poetry/${poem.slug}`}
+                  className="inline-flex items-center gap-2 font-medium transition hover:text-zinc-300"
                 >
                   Read Poem
                   <ArrowRight size={16} />
@@ -240,39 +420,66 @@ export default function PoetryPage() {
       </section>
 
       {/* Quote */}
-      <section className="border-t border-white/10 px-6 py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <blockquote className="text-3xl font-light leading-relaxed md:text-5xl">
+      <section className="border-t border-white/10 px-6 py-32">
+        <div className="mx-auto max-w-5xl text-center">
+          <div className="mb-8 flex justify-center">
+            <Bookmark size={46} />
+          </div>
+
+          <blockquote className="text-3xl font-light leading-relaxed md:text-6xl">
             “Poetry begins where ordinary words
+            <br />
             are no longer enough.”
           </blockquote>
 
-          <p className="mt-8 text-zinc-500">
+          <p className="mt-10 text-lg text-zinc-500">
             — Letters Never Sent
           </p>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="border-t border-white/10 px-6 py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <Heart size={36} className="mx-auto mb-6" />
+      {/* Reflection */}
+      <section className="border-t border-white/10 px-6 py-28">
+        <div className="mx-auto max-w-5xl text-center">
+          <div className="mb-6 flex justify-center">
+            <Coffee size={46} />
+          </div>
 
-          <h2 className="mb-6 text-4xl font-bold">
+          <h2 className="mb-8 text-5xl font-bold">
+            Why Poetry Matters
+          </h2>
+
+          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-zinc-400">
+            Poetry reminds us that feelings do not need to be explained in
+            order to be understood. A few carefully chosen lines can hold an
+            entire lifetime of experience, offering comfort, recognition, and
+            connection.
+          </p>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="border-t border-white/10 px-6 py-32">
+        <div className="mx-auto max-w-5xl text-center">
+          <div className="mb-6 flex justify-center">
+            <BookHeart size={46} />
+          </div>
+
+          <h2 className="mb-6 text-5xl font-bold">
             Continue Reading
           </h2>
 
-          <p className="mb-10 text-zinc-500">
-            Explore letters, memories, reflections,
-            and stories from the heart.
+          <p className="mx-auto mb-12 max-w-2xl text-lg text-zinc-500">
+            Explore letters, memories, reflections, emotions, and stories from
+            the heart.
           </p>
 
           <Link
             href="/letters"
-            className="inline-flex items-center gap-3 rounded-full border border-white px-8 py-4 transition hover:bg-white hover:text-black"
+            className="inline-flex items-center gap-3 rounded-full border border-white px-8 py-4 text-lg transition-all duration-300 hover:bg-white hover:text-black"
           >
             Browse Letters
-            <ArrowRight size={18} />
+            <ArrowRight size={20} />
           </Link>
         </div>
       </section>
