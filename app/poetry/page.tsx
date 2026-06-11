@@ -143,43 +143,43 @@ const collections: {
   description: string;
   icon: LucideIcon;
 }[] = [
-  {
-    title: "Love Poems",
-    description:
-      "Verses about affection, connection, devotion, and the complexities of the heart.",
-    icon: Heart,
-  },
-  {
-    title: "Dream Poems",
-    description:
-      "Poetry inspired by imagination, wonder, possibility, and the night sky.",
-    icon: Stars,
-  },
-  {
-    title: "Healing Poems",
-    description:
-      "Words written for recovery, resilience, acceptance, and hope.",
-    icon: Flower2,
-  },
-  {
-    title: "Nature Poems",
-    description:
-      "Reflections inspired by seasons, landscapes, weather, and change.",
-    icon: Wind,
-  },
-  {
-    title: "Passion Poems",
-    description:
-      "Poetry fueled by intensity, creativity, ambition, and desire.",
-    icon: Flame,
-  },
-  {
-    title: "Life Poems",
-    description:
-      "Observations on growth, memory, time, and the human experience.",
-    icon: Sun,
-  },
-];
+    {
+      title: "Love Poems",
+      description:
+        "Verses about affection, connection, devotion, and the complexities of the heart.",
+      icon: Heart,
+    },
+    {
+      title: "Dream Poems",
+      description:
+        "Poetry inspired by imagination, wonder, possibility, and the night sky.",
+      icon: Stars,
+    },
+    {
+      title: "Healing Poems",
+      description:
+        "Words written for recovery, resilience, acceptance, and hope.",
+      icon: Flower2,
+    },
+    {
+      title: "Nature Poems",
+      description:
+        "Reflections inspired by seasons, landscapes, weather, and change.",
+      icon: Wind,
+    },
+    {
+      title: "Passion Poems",
+      description:
+        "Poetry fueled by intensity, creativity, ambition, and desire.",
+      icon: Flame,
+    },
+    {
+      title: "Life Poems",
+      description:
+        "Observations on growth, memory, time, and the human experience.",
+      icon: Sun,
+    },
+  ];
 
 export default function PoetryPage() {
   return (
@@ -217,23 +217,144 @@ export default function PoetryPage() {
         </div>
       </section>
 
-      {/* Introduction */}
-      <section className="px-6 py-28">
-        <div className="mx-auto max-w-5xl">
-          <div className="rounded-[40px] border border-white/10 bg-white/[0.03] p-10 md:p-16">
-            <div className="mb-6 flex justify-center">
-              <Quote size={42} />
+      {/* EXTENDED INTRODUCTION SECTION */}
+      <section className="relative overflow-hidden px-6 py-36">
+        {/* Background Glow */}
+        <div className="absolute inset-0">
+          <div className="absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/[0.02] blur-3xl" />
+          <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-white/[0.02] blur-3xl" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl">
+          {/* Main Card */}
+          <div className="mx-auto max-w-6xl rounded-[48px] border border-white/10 bg-white/[0.03] p-10 md:p-20">
+            {/* Quote Icon */}
+            <div className="mb-8 flex justify-center">
+              <div className="rounded-full border border-white/10 bg-white/[0.04] p-5">
+                <Quote size={46} />
+              </div>
             </div>
 
-            <h2 className="mb-8 text-center text-4xl font-bold md:text-5xl">
-              A Collection Of Feelings
+            {/* Badge */}
+            <div className="mb-8 flex justify-center">
+              <span className="rounded-full border border-white/10 bg-white/[0.04] px-5 py-2 text-xs uppercase tracking-[0.25em] text-zinc-500">
+                Poetry Collection
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h2 className="mb-8 text-center text-5xl font-black leading-tight md:text-7xl">
+              A Collection Of
+              <br />
+              Feelings
             </h2>
 
-            <p className="text-center text-lg leading-relaxed text-zinc-400">
-              Some emotions are too large for ordinary sentences. Poetry allows
-              them to breathe. Through rhythm, imagery, metaphor, and silence,
-              poetry captures experiences that often escape explanation. Every
-              poem is an attempt to preserve a feeling before it disappears.
+            {/* Intro Paragraph */}
+            <div className="mx-auto max-w-4xl text-center">
+              <p className="text-lg leading-relaxed text-zinc-400 md:text-xl">
+                Some emotions are too vast for ordinary
+                sentences. Some memories resist explanation.
+                Some experiences can only be understood
+                through feeling rather than language.
+                <br />
+                <br />
+                Poetry creates a space where those emotions
+                can exist freely. Through rhythm, imagery,
+                symbolism, metaphor, and silence, poems
+                capture fragments of the human experience
+                that often escape everyday conversation.
+                <br />
+                <br />
+                Every poem becomes a vessel carrying
+                remembrance, longing, hope, heartbreak,
+                wonder, imagination, and reflection across
+                time.
+              </p>
+            </div>
+
+            {/* Divider */}
+            <div className="mx-auto my-16 h-px w-40 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
+            {/* Extended Story */}
+            <div className="mx-auto max-w-5xl">
+              <p className="text-center text-lg leading-relaxed text-zinc-500">
+                Throughout history, poetry has preserved
+                emotions that might otherwise have been
+                forgotten. It has given voice to dreamers,
+                lovers, travelers, seekers, and storytellers.
+                It has transformed personal experiences into
+                timeless reflections that continue to resonate
+                across generations.
+                <br />
+                <br />
+                This collection celebrates those moments.
+                The quiet moments.
+                The transformative moments.
+                The unforgettable moments.
+                The moments that continue to echo long after
+                they have passed.
+                <br />
+                <br />
+                Here, every poem serves as a reminder that
+                feelings matter, memories matter, and the
+                stories hidden within the human heart deserve
+                to be preserved.
+              </p>
+            </div>
+          </div>
+
+          {/* Feature Cards */}
+          <div className="mt-20 grid gap-8 md:grid-cols-3">
+            <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-10 text-center">
+              <h3 className="mb-5 text-3xl font-bold">
+                Emotion
+              </h3>
+
+              <p className="leading-relaxed text-zinc-500">
+                Poems transform feelings into words,
+                allowing joy, sorrow, hope, and longing to
+                find expression beyond ordinary language.
+              </p>
+            </div>
+
+            <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-10 text-center">
+              <h3 className="mb-5 text-3xl font-bold">
+                Memory
+              </h3>
+
+              <p className="leading-relaxed text-zinc-500">
+                Every poem preserves a moment in time,
+                creating a lasting record of experiences,
+                reflections, and personal journeys.
+              </p>
+            </div>
+
+            <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-10 text-center">
+              <h3 className="mb-5 text-3xl font-bold">
+                Imagination
+              </h3>
+
+              <p className="leading-relaxed text-zinc-500">
+                Poetry invites readers beyond reality,
+                opening doors to symbolism, wonder,
+                creativity, and limitless possibility.
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom Statement */}
+          <div className="mx-auto mt-24 max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] p-12 md:p-20 text-center">
+            <p className="mb-6 text-3xl font-bold leading-relaxed md:text-4xl">
+              Poetry is not merely written.
+              <br />
+              It is remembered, felt, and lived.
+            </p>
+
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-zinc-500">
+              Each poem in this collection carries a piece
+              of human experience, inviting readers to pause,
+              reflect, and discover their own stories within
+              the words.
             </p>
           </div>
         </div>
