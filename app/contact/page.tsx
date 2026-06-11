@@ -12,6 +12,7 @@ import {
   PenTool,
   BookOpen,
   Headphones,
+  UploadCloud,
   HeartHandshake,
   ShieldCheck,
   ChevronRight,
@@ -19,6 +20,7 @@ import {
   PhoneCall,
   Briefcase,
   Star,
+  ArrowRight,
 } from "lucide-react";
 
 export const metadata = {
@@ -260,108 +262,271 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* EXTENDED CONTACT FORM */}
           <div className="lg:col-span-3">
-            <div className="rounded-[40px] border border-white/10 bg-white/[0.03] p-8 md:p-14">
-              <div className="mb-10">
-                <h2 className="mb-4 text-5xl font-bold">
+            <div className="rounded-[48px] border border-white/10 bg-white/[0.03] p-8 md:p-16">
+              {/* Header */}
+              <div className="mb-12">
+                <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-5 py-2">
+                  <MessageSquare size={16} />
+                  <span className="text-xs uppercase tracking-[0.25em] text-zinc-500">
+                    Contact Form
+                  </span>
+                </div>
+
+                <h2 className="mb-6 text-5xl font-black md:text-6xl">
                   Send A Message
                 </h2>
 
-                <p className="text-zinc-500">
-                  Fill out the form below and we'll get back to you as soon as
-                  possible.
+                <p className="max-w-3xl text-lg leading-relaxed text-zinc-500">
+                  Whether you have a question, story submission,
+                  collaboration proposal, interview request,
+                  partnership inquiry, or simply wish to share
+                  your thoughts, we would love to hear from you.
+                  Every message is read with care and attention.
                 </p>
               </div>
 
-              <form className="space-y-7">
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div>
-                    <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
-                      Full Name
-                    </label>
-
-                    <input
-                      type="text"
-                      placeholder="Enter your name"
-                      className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none transition focus:border-white"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
-                      Email Address
-                    </label>
-
-                    <input
-                      type="email"
-                      placeholder="you@example.com"
-                      className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none transition focus:border-white"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div>
-                    <label htmlFor="inquiry-type" className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
-                      Inquiry Type
-                    </label>
-
-                    <select id="inquiry-type" className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none focus:border-white">
-                      <option>General Inquiry</option>
-                      <option>Story Submission</option>
-                      <option>Feedback</option>
-                      <option>Collaboration</option>
-                      <option>Interview Request</option>
-                      <option>Partnership</option>
-                      <option>Technical Support</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
-                      Subject
-                    </label>
-
-                    <input
-                      type="text"
-                      placeholder="Message subject"
-                      className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none focus:border-white"
-                    />
-                  </div>
-                </div>
-
+              <form className="space-y-8">
+                {/* Personal Information */}
                 <div>
-                  <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
-                    Message
+                  <h3 className="mb-6 text-2xl font-bold">
+                    Personal Information
+                  </h3>
+
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div>
+                      <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
+                        Full Name *
+                      </label>
+
+                      <input
+                        type="text"
+                        placeholder="Enter your full name"
+                        className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none transition-all focus:border-white"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
+                        Email Address *
+                      </label>
+
+                      <input
+                        type="email"
+                        placeholder="you@example.com"
+                        className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none transition-all focus:border-white"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
+                        Phone Number
+                      </label>
+
+                      <input
+                        type="tel"
+                        placeholder="+91 98765 43210"
+                        className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none transition-all focus:border-white"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
+                        Country / Region
+                      </label>
+
+                      <input
+                        type="text"
+                        placeholder="Your location"
+                        className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none transition-all focus:border-white"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Inquiry Details */}
+                <div className="border-t border-white/10 pt-10">
+                  <h3 className="mb-6 text-2xl font-bold">
+                    Inquiry Details
+                  </h3>
+
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="inquiry-type"
+                        className="mb-3 block text-sm uppercase tracking-wider text-zinc-400"
+                      >
+                        Inquiry Type *
+                      </label>
+
+                      <select
+                        id="inquiry-type"
+                        className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none transition-all focus:border-white"
+                      >
+                        <option>General Inquiry</option>
+                        <option>Story Submission</option>
+                        <option>Poetry Submission</option>
+                        <option>Letter Submission</option>
+                        <option>Feedback</option>
+                        <option>Collaboration</option>
+                        <option>Interview Request</option>
+                        <option>Partnership</option>
+                        <option>Media Inquiry</option>
+                        <option>Technical Support</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
+                        Subject *
+                      </label>
+
+                      <input
+                        type="text"
+                        placeholder="Enter subject"
+                        className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none transition-all focus:border-white"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div className="border-t border-white/10 pt-10">
+                  <h3 className="mb-6 text-2xl font-bold">
+                    Your Message
+                  </h3>
+
+                  <div>
+                    <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
+                      Message *
+                    </label>
+
+                    <textarea
+                      rows={10}
+                      placeholder="Share your thoughts, questions, ideas, or request..."
+                      className="w-full rounded-3xl border border-white/10 bg-black/70 px-6 py-5 outline-none transition-all focus:border-white"
+                    />
+                  </div>
+                </div>
+
+                {/* Additional Information */}
+                <div className="border-t border-white/10 pt-10">
+                  <h3 className="mb-6 text-2xl font-bold">
+                    Additional Information
+                  </h3>
+
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div>
+                      <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
+                        Website / Portfolio
+                      </label>
+
+                      <input
+                        type="url"
+                        placeholder="https://yourwebsite.com"
+                        className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none transition-all focus:border-white"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
+                        Social Media
+                      </label>
+
+                      <input
+                        type="text"
+                        placeholder="@username"
+                        className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none transition-all focus:border-white"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
+                    <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
+                      Additional Details
+                    </label>
+
+                    <textarea
+                      rows={5}
+                      placeholder="Any extra information that may help us understand your inquiry..."
+                      className="w-full rounded-3xl border border-white/10 bg-black/70 px-6 py-5 outline-none transition-all focus:border-white"
+                    />
+                  </div>
+                </div>
+
+                {/* File Upload */}
+                <div className="border-t border-white/10 pt-10">
+                  <label htmlFor="attachment-upload" className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
+                    Attachment (Optional)
                   </label>
 
-                  <textarea
-                    rows={10}
-                    placeholder="Tell us how we can help..."
-                    className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none focus:border-white"
-                  />
+                  <div className="rounded-[28px] border border-dashed border-white/20 bg-white/[0.02] p-10 text-center">
+                    <UploadCloud
+                      size={40}
+                      className="mx-auto mb-4 text-zinc-500"
+                    />
+
+                    <p className="mb-2 text-lg font-medium">
+                      Upload Files
+                    </p>
+
+                    <p className="text-sm text-zinc-500">
+                      PDF, DOCX, TXT, JPG or PNG
+                      <br />
+                      Maximum file size: 10MB
+                    </p>
+
+                    <input
+                      id="attachment-upload"
+                      type="file"
+                      className="mt-6 block w-full text-sm text-zinc-500"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label className="mb-3 block text-sm uppercase tracking-wider text-zinc-400">
-                    Additional Details
+                {/* Consent */}
+                <div className="border-t border-white/10 pt-10">
+                  <label className="flex items-start gap-4">
+                    <input
+                      type="checkbox"
+                      className="mt-1 h-5 w-5 rounded border-white/20 bg-black"
+                    />
+
+                    <span className="text-sm leading-relaxed text-zinc-500">
+                      I agree that my information may be used
+                      to respond to my inquiry and understand
+                      that submitted information will be handled
+                      respectfully and securely.
+                    </span>
                   </label>
-
-                  <textarea
-                    rows={4}
-                    placeholder="Optional information..."
-                    className="w-full rounded-2xl border border-white/10 bg-black/70 px-5 py-4 outline-none focus:border-white"
-                  />
                 </div>
 
-                <button
-                  type="submit"
-                  className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 font-semibold text-black transition-all duration-300 hover:scale-105"
-                >
-                  <Send size={18} />
-                  Send Message
-                </button>
+                {/* Submit Button */}
+                <div className="pt-4">
+                  <button
+                    type="submit"
+                    className="
+            inline-flex
+            items-center
+            gap-3
+            rounded-full
+            bg-white
+            px-10
+            py-5
+            text-base
+            font-semibold
+            text-black
+            transition-all
+            duration-300
+            hover:scale-105
+          "
+                  >
+                    <Send size={18} />
+                    Send Message
+                    <ArrowRight size={18} />
+                  </button>
+                </div>
               </form>
             </div>
           </div>
