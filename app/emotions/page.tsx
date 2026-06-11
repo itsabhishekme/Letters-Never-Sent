@@ -179,24 +179,159 @@ export default function EmotionsPage() {
         </div>
       </section>
 
-      {/* Introduction */}
-      <section className="px-6 py-28">
-        <div className="mx-auto max-w-5xl">
-          <div className="rounded-[40px] border border-white/10 bg-white/[0.03] p-10 md:p-16">
-            <div className="mb-6 flex justify-center">
-              <Quote size={42} />
+      {/* EXTENDED INTRODUCTION SECTION */}
+      <section className="relative overflow-hidden px-6 py-36">
+        {/* Background Effects */}
+        <div className="absolute inset-0">
+          <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-white/[0.02] blur-3xl" />
+          <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-white/[0.015] blur-3xl" />
+          <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-white/[0.015] blur-3xl" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl">
+          {/* Main Card */}
+          <div className="mx-auto max-w-6xl rounded-[48px] border border-white/10 bg-white/[0.03] p-10 md:p-20">
+            {/* Icon */}
+            <div className="mb-8 flex justify-center">
+              <div className="rounded-full border border-white/10 bg-white/[0.04] p-5">
+                <Quote size={48} />
+              </div>
             </div>
 
-            <h2 className="mb-8 text-center text-4xl font-bold md:text-5xl">
-              The Language Of The Heart
+            {/* Label */}
+            <div className="mb-8 flex justify-center">
+              <span className="rounded-full border border-white/10 bg-white/[0.04] px-5 py-2 text-xs uppercase tracking-[0.3em] text-zinc-500">
+                Human Emotions
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h2 className="mb-10 text-center text-5xl font-black leading-tight md:text-7xl">
+              The Language
+              <br />
+              Of The Heart
             </h2>
 
-            <p className="text-center text-lg leading-relaxed text-zinc-400">
-              Emotions connect people across time, distance, cultures, and
-              experiences. They shape the letters we write, the memories we
-              preserve, the poems we create, and the stories we carry within
-              ourselves. Through emotion, we understand not only others but
-              also who we are becoming.
+            {/* Main Description */}
+            <div className="mx-auto max-w-4xl text-center">
+              <p className="text-lg leading-relaxed text-zinc-400 md:text-xl">
+                Emotions are among the most universal forces
+                in human existence. Long before words are
+                spoken, emotions shape how we see the world,
+                connect with others, and understand
+                ourselves.
+                <br />
+                <br />
+                They transcend geography, language,
+                generations, beliefs, and cultures. A memory
+                of love, a feeling of loss, a moment of hope,
+                or a sense of wonder can be understood by
+                people who have never met and may never
+                share the same experiences.
+                <br />
+                <br />
+                Emotions are the invisible threads that
+                connect every story, every letter, every
+                memory, every poem, and every human journey.
+              </p>
+            </div>
+
+            {/* Divider */}
+            <div className="mx-auto my-16 h-px w-40 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
+            {/* Extended Content */}
+            <div className="mx-auto max-w-5xl">
+              <p className="text-center text-lg leading-relaxed text-zinc-500">
+                Every meaningful experience leaves an
+                emotional imprint. It is emotion that
+                transforms ordinary moments into lifelong
+                memories. It is emotion that inspires people
+                to write letters, create art, preserve
+                photographs, compose poetry, and tell stories
+                that endure through time.
+                <br />
+                <br />
+                Through emotion, we remember where we have
+                been. Through emotion, we discover what truly
+                matters. Through emotion, we find the courage
+                to reflect, heal, dream, forgive, and grow.
+                <br />
+                <br />
+                The stories we carry are rarely defined by
+                events alone. They are defined by how those
+                events made us feel. Those feelings become
+                part of our identity, shaping not only our
+                memories but also the people we continue to
+                become.
+              </p>
+            </div>
+          </div>
+
+          {/* Feature Cards */}
+          <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+            <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-10">
+              <h3 className="mb-5 text-3xl font-bold">
+                Love
+              </h3>
+
+              <p className="leading-relaxed text-zinc-500">
+                The force that inspires connection,
+                belonging, compassion, and the desire to
+                preserve meaningful relationships.
+              </p>
+            </div>
+
+            <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-10">
+              <h3 className="mb-5 text-3xl font-bold">
+                Hope
+              </h3>
+
+              <p className="leading-relaxed text-zinc-500">
+                The quiet belief that tomorrow can hold new
+                possibilities, new beginnings, and new
+                opportunities for growth.
+              </p>
+            </div>
+
+            <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-10">
+              <h3 className="mb-5 text-3xl font-bold">
+                Memory
+              </h3>
+
+              <p className="leading-relaxed text-zinc-500">
+                The bridge between the past and present,
+                preserving moments that continue to shape our
+                understanding of life.
+              </p>
+            </div>
+
+            <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-10">
+              <h3 className="mb-5 text-3xl font-bold">
+                Reflection
+              </h3>
+
+              <p className="leading-relaxed text-zinc-500">
+                The process through which experiences gain
+                meaning, helping us discover wisdom within
+                our personal journeys.
+              </p>
+            </div>
+          </div>
+
+          {/* Quote Section */}
+          <div className="mx-auto mt-24 max-w-5xl rounded-[40px] border border-white/10 bg-white/[0.03] p-12 md:p-20 text-center">
+            <p className="mb-8 text-3xl font-bold leading-relaxed md:text-5xl">
+              Emotions are not simply feelings.
+              <br />
+              They are the stories beneath every story.
+            </p>
+
+            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-zinc-500">
+              They shape the letters we write, the memories
+              we preserve, the poems we create, and the
+              journeys we remember. Through emotion, we
+              understand not only others, but also who we
+              are becoming.
             </p>
           </div>
         </div>
